@@ -1,1 +1,15 @@
-Trackmania ML Model
+ALL ML FILES CAN BE FOUND IN RELEASES
+
+As part of the Bytes & Bolts multi-disciplinary hackathon at UTS, my team built an AI agent capable of driving a racing circuit in TrackMania Nations Forever faster than human input alone, achieving 5th place on the seen course leaderboard.
+
+I implemented a deep reinforcement learning system using Linesight, an open-source framework built on IQN (Implicit Quantile Networks), a reinforcement learning algorithm. The AI learns entirely through trial and error, with it starting knowing nothing and crashing constantly, but gradually discovering faster and faster driving strategies by receiving rewards for forward progress and penalties for going off-track.
+
+The key insight was in how I set up the training. Rather than giving the AI a generic path down the centre of the track, I manually drove a lap that incorporated a clever shortcut, a more aggressive racing line that cut time off the route. The AI then used this path as its reference, meaning it learned to optimise around a fundamentally faster route from the very beginning.
+
+To further push the times, I also applied TMInterface's bruteforce optimiser, a tool that systematically mutates control inputs frame-by-frame to squeeze out additional milliseconds beyond what the trained model could achieve alone.
+
+Technical stack:
+- Python, PyTorch
+- Linesight / IQN reinforcement learning framework
+- TMInterface for game scripting and bruteforce optimisation
+- TrackMania Nations Forever game engine
